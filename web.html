@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An toan tren khong gian mang</title>
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<style>
+    .full_web{
+            background-color: rgb(247, 246, 246);
+        }
+        body{
+            font-family: 'Segoe UI';
+        }
+        .main {
+            width: 100%;
+            background: linear-gradient(to top, rgb(255, 255, 255)50%, rgb(255, 255, 255)50%),url();
+            background-position: center;
+            background-size: cover;
+            height: 110px;
+            font-family: sans-serif;
+            background-color: #ffffff;
+        }
+        .navbar {
+            width: 95%;
+            height: auto;
+            margin-left: 30px;
+        }
+        .logo {
+            color: #ef1a06;
+            font-size: 40px;
+            margin-left: 5%;
+            float: left;
+            padding-top: .8%;
+        }
+        .menu {
+            width: 600px;
+            float: left;
+            width: auto; 
+            margin-bottom: 6px;
+            z-index: 1;
+        }
+        ul {
+            float: left;
+            display: flex;
+            padding-top: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-left: 6%;
+            white-space: nowrap;
+        }
+        ul li {
+            list-style: none;
+            margin-left: 60px;
+            font-size: 15px;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-family: 'Segoe UI';
+            font-weight: bold;
+            transition: .3s ease;
+
+        }
+        ul li a:hover {
+            color: #ff7200;
+        }
+        li a, .dropbtn{
+            display: inline-block;
+            color: black;
+            text-align: center;
+            padding: 10px 1px;
+            text-decoration: none;
+        }
+        li a:hover, .dropdown:hover .dropbtn{
+            background-color: #ffffff;
+            width: auto;
+            height: 29px;
+        }
+        li.dropdown{
+            display: inline-block;
+        }
+        .dropdown-content{
+            display:none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.2) inset;
+            z-index: 99;
+        }
+        .dropdown-content a{
+            color: rgb(0, 0, 0);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover{
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        div{
+            margin-bottom: 10px;
+        }
+        .news h1{
+            margin-left: 107px;
+        }
+        .container_news img{
+            width: 100%;
+        }
+        .container_news{
+            padding-left: 7%;
+            padding-right: 7%;
+            display: grid;
+            gap: 15px;
+            grid-template-areas: 
+            'item1 item1 item2 item3'
+            'item1 item1 item4 item5';
+        }
+        .container_news a{
+            text-decoration: none;
+            color: #000000;
+        }
+        .container_news .item1{
+            grid-area: item1;
+        }
+        .container_news .item2{
+            grid-area: item2;
+        }
+        .container_news .item3{
+            grid-area: item3;
+        }
+        .container_news .item4{
+            grid-area: item4;
+        }
+        .container_news .item5{
+            grid-area: item5;
+        }
+        .warning h1{
+            margin-left: 107px;
+        }
+        .container_warning{
+            padding-left: 7%;
+            padding-right: 7%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            justify-content: center;
+        }
+        .container_warning .item{
+            width: 310px;   
+        }
+        .container_warning a{
+            text-decoration: none;
+            color: #000000;
+        }
+        .container_warning img{
+            width: 100%;
+        }
+        .tools h1{
+            margin-left: 107px;
+        }
+        .container_tools{
+            padding-left: 7%;
+            padding-right: 7%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            justify-content: center;
+            
+        }
+        .container_tools button{         
+            background-color: #fff;
+            color: #000000;
+            font-size: medium;
+            width: 320px;
+            height: 182.6px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(56,46,46,.1);
+            transition: all 0.3s linear, back-ground-color 0.3s;
+        }
+
+        .container_tools :hover{ 
+            transform:translateY(-10px);    
+            border-radius: 5px;
+            transition: all 0.3s linear, back-ground-color 0.3s ;
+            background-image: linear-gradient(purple, pink); 
+            color: #fff; 
+        }
+        .extensions h1{
+            margin-left: 107px;
+        }
+        .container_extensions{
+            padding-left: 7%;
+            padding-right: 7%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            justify-content: center;
+        }
+        .container_extensions button{ 
+            background-color: #fff;
+            color: #000000;
+            font-size: medium;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            width: 320px;
+            height: 182.6px;
+            box-shadow: 0 0 30px rgba(56,46,46,.1);
+            transition: transform 0.3s linear, back-ground-color 0.3s;
+        }
+        .container_extensions :hover{  
+            transform:translateY(-10px);
+            border-radius: 5px;
+            transition: all 0.3s linear, back-ground-color 0.3s ;
+            background-image: linear-gradient(purple, pink);  
+            color: #fff;
+        }
+        .knowledge h1{
+            margin-left: 107px;
+        }
+        .container_knowledge{ 
+            padding-left: 7%;
+            padding-right: 7%;
+            display: grid;
+            grid-template-columns:1fr 1fr 1fr 1fr;
+            gap: 20px;
+            justify-content: center;
+        }
+        .container_knowledge button{ 
+            background-color: #fff;
+            color: #000000;
+            font-size: medium;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            width: 320px;
+            height: 182.6px;
+            box-shadow: 0 0 30px rgba(56,46,46,.1);
+            transition: transform 0.3s linear, back-ground-color 0.3s;
+        }
+        .container_knowledge :hover{ 
+            transform:translateY(-10px);
+            border-radius: 5px;
+            transition: all 0.3s linear, back-ground-color 0.3s ;
+            background-image: linear-gradient(purple, pink);  
+            color: #fff; 
+        }
+        .ncsc_solution{   
+            background-color:  rgb(255, 255, 255);
+        }
+        .ncsc_solution .headline{  
+            text-align: justify;
+            padding-left: 7%;
+            padding-right: 7%;
+        }
+        .container_ncsc{
+            padding-left: 7%;
+            padding-right: 7%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            justify-content: center;
+        }
+        .container_ncsc a{
+            text-decoration: none;
+            color: rgb(88, 97, 234);
+        }
+        .container_ncsc .item{
+            width: 558px;
+            text-align: justify;
+        }
+        .solution{
+            padding-left: 7%;
+            padding-right: 7%;
+        }
+        .container_solution{ 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 300px;
+            justify-content: center;
+        }
+        .container_solution button{           
+            border: none;
+            outline: none;
+            color: #000000;
+            font-size: medium;
+            border-radius: 5px;
+            box-shadow:  0 0 30px rgba(56,46,46,.1);
+            background-color: #ffffff;
+            width: 224px;
+            height: 254px;
+            transition: all 0.3s linear;
+        }
+        .container_solution .item2 :hover{
+            transform:translateY(-10px);
+            
+        }
+        .container_solution .item2{
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 50px;
+        }
+        .support h1{
+            text-align: justify;
+            margin-left: 107px;
+        }
+        .support p{
+            text-align: justify;
+            margin:0 107px 0 107px ;
+        }
+        .container_support{
+            padding-left: 7%;
+            padding-right: 7%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            justify-content: center;
+            gap: 0px;
+        }
+        .container_support .item{
+            width: 268px;
+            padding-bottom: 30px;
+        }
+        .container_support button{         
+            background-color: #fff;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            box-shadow:  0 0 30px rgba(56,46,46,.1);
+            width: 305px;;
+            height: 160px;
+            transition: all 0.3s linear, back-ground-color 0.3s;
+        }
+        .container_support :hover{          
+            transform:translateY(-10px);
+            border-radius: 5px;
+            transition: all 0.3s linear, back-ground-color 0.3s ;
+        }
+        h4{
+            color: #ffffff;
+        }
+        footer{
+            background-color: #19202d;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;  
+            gap: 40px;
+        }
+        footer .footer_item{
+            width: 100%;
+            max-width: 300px;
+        }
+        footer .item{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        footer .item_con{
+            color: #ffffff92;
+        }
+        footer .item_con a{         
+            transition: transform 0.3s linear, color 0.3s;        
+            text-decoration: none;
+            color: #ffffff92;
+        }
+        footer .item_con a :hover{              
+            transform:translateX(10px);    
+            color: #fff;
+        }
+        footer p{
+            color: #ffffff;
+        }
+        footer.input{ 
+            border-radius: 5px;
+            background-color: white;
+            border: none;
+            outline: none;
+        }
+        footer .button{ 
+            border-radius: 5px;
+            padding: 15px 30px;
+            background-color: white;
+            border: none;
+            outline: none;
+            font-size: medium;
+
+        }
+        @media (max-width: 800px) {      
+            .logo{
+                width: 150px;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .main{
+                margin: auto;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .menu{
+                display: none;
+            }
+            .news h1{
+                margin-left: 22px;
+            }
+            .container_news{
+                grid-template-areas:
+                    'headline'
+                    'item1'
+                    'item2'
+                    'item3'
+                    'item4'
+                    'item5';
+            }
+            .warning h1{
+                margin-left: 22px;
+            }
+            .container_warning {
+                grid-template-columns: 1fr;
+            }
+            .container_warning .item {
+                width: 100%;
+            }
+            .tools h1{
+                margin-left: 22px;
+            }
+            .container_tools{
+                grid-template-columns: 1fr;
+            }
+            .container_tools .item{
+                width: 100%;
+            }
+            .extensions h1{
+                margin-left: 22px;
+            }
+            .container_extensions{
+                grid-template-columns: 1fr;
+            }
+            .container_extensions .item{
+                width: 100%;
+            }
+            .knowledge h1{
+                margin-left: 22px;
+            }
+            .container_knowledge{
+                grid-template-columns: 1fr;
+            }
+            .container_knowledge .item{
+                width: 100%;
+            }
+            .ncsc_solution{ 
+                text-align: justify;
+            }
+            .ncsc_solution .headline{
+                text-align: justify;
+            }
+            .container_ncsc{
+                grid-template-columns: 1fr;
+                width: 86%;
+            }
+            .container_ncsc .item {
+                text-align: justify;
+                width: 100%; 
+            }
+            .container_solution {
+                grid-template-columns: 1fr; 
+                gap: 10px;
+            }
+            .container_solution img{
+                width: 75%;
+                margin-left: 35px;
+                justify-content: center;
+            }
+            .container_solution .item2{
+                margin-left: 35px ;
+                gap: 5px;
+            }
+            .support h1{
+                margin-left: 22px;
+            }
+            .support p{
+                margin: 0 22px 0 22px;
+            }
+            .container_support{
+                grid-template-columns: 1fr;
+            }
+            .container_support .item{
+                width: 100%;
+            }
+            
+        }
+        @media (max-width: 1280px) {      
+            .full_web{
+                width: 100%;
+            }
+            .container_support button{
+                width: 275px;
+            }
+            .menu ul{
+                margin-left: 0px;
+            }
+            .container_tools button{
+                width: 97%;
+            }
+            .container_extensions button{
+                width: 97%;
+            }
+            .container_knowledge button{
+                width: 97%;
+            }
+            .container_ncsc {
+                width: 80%;
+                gap: 10px;
+                margin-left: 50px;
+            }
+            .container_solution{
+                gap: 100px;
+            }
+            .solution .item2{
+                gap: 10px;
+            }
+            footer {
+                gap: 200px;
+            }
+        }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+</head>
+<body class="full_web">
+    <header>
+        <div class="main">
+            <div class="navbar">
+                <img class="logo" src="logo.png" alt="" width="170px">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Công cụ</a>
+                        <div class="dropdown-content">
+                            <a href="">Công cụ kiểm tra lỗ hổng ProxyNotFound</a>
+                            <a href="">Công cụ kiểm tra lỗ hổng ProxyLogon</a>
+                            <a href="">Chiến dịch rà quét mã độc</a>
+                            <a href="">Kiểm tra mạng máy tính độc</a>
+                            <a href="">Kiểm tra lộ lọt thông tin tài khoản cá nhân</a>
+                            <a href="">Giải mã, nhận diện mã độc tống tiền</a>
+                            <a href="">Kho tri thức về tấn công có chủ đích</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Giải pháp</a>
+                        <div class="dropdown-content">
+                            <a href="">Hệ thống Bug Bounty & Vulnerability Disclosure</a>
+                            <a href="">Hệ thống cảnh báo điểm yếu và rà soát lỗ hổng bảo mật tự đổng</a>
+                            <a href="">Hệ thống gán nhãn Website Tín nhiệm mạng</a>
+                            <a href="">Hệ thống phân tích và chia sẻ nguy cơ tấn công mạng</a>
+                            <a href="">Open API (Coming soon)</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Thông tin cảnh báo</a>
+                        <div class="dropdown-content">
+                            <a href="">Cảnh báo ATTT</a>
+                            <a href="">Lỗ hổng đang bị khai thác</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+               </ul>
+            </div>
+        </div>
+    </header>
+    <tbody>
+        <div class="news " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="headline"><h1>Tin nổi bật</h1></div>
+            <div class="container_news">
+                <div class="item1"><a href=""><img src="news1.png" width="600px"><p><b>Bộ nhận diện Ngày Chuyển đổi số quốc gia năm 2023</b><br>Phát động chương trình tháng hưởng ứng Ngày Chuyển Đổi Số quốc gia 2023.</p></a></div>
+                <div class="item2"><a href=""><img src="news2.png" width="350px"><p><b>Smart Banking 2023: Khai phá tiềm năng dữ liệu để chuyển đổi số toàn diện ngành ngân hàng</b></p></a></div>
+                <div class="item3"><a href=""><img src="news3.jpg" width="350px"><p><b>LỪA ĐẢO KHÔNG GIAN MẠNG 24: Lừa đảo cho số đánh lô đề</b></p></a></div>
+                <div class="item4"><a href=""><img src="news4.jpeg" width="350px"><p><b>LỪA ĐẢO KHÔNG GIAN MẠNG 23: Rải link phishing lừa đảo, seeding quảng cáo bẩn trên Facebook</b></p></a></div>
+                <div class="item5"><a href=""><img src="news5.jpg" width="350px"><p><b>LỪA ĐẢO KHÔNG GIAN MẠNG 22: Lừa đảo tình cảm</b></p></a></div>
+            </div>
+        </div>
+        <div class="warning " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="headline"><h1>Cảnh báo an toàn thông tin</h1></div>
+            <div class="container_warning">
+                <div class="item1"><a href=""><img src="warning1.png" height="172px" width="200px"><p><b>Cảnh báo an toàn thông tin tuần 39/2023</b></p></a></div>
+                <div class="item2"><a href=""><img src="warning2.png" height="172px" width="200px"><p><b>Cảnh báo an toàn thông tin tuần 38/2023</b></p></a></div>
+                <div class="item3"><a href=""><img src="warning3.png" height="172px" width="200px"><p><b>Lỗ hổng bảo mật có mức ảnh hưởng cao và nghiêm trọng trong các sản phẩm Microsoft công bố tháng 09/2023</b></p></a></div>
+                <div class="item4"><a href=""><img src="warning4.png" height="172px" width="200px"><p><b>Báo cáo kỹ thuật ATTT tháng 08/2023</b></p></a></div>
+            </div>
+        </div>
+        <div class="tools " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="headline"><h1>Công cụ kiểm tra</h1></div>
+            <div class="container_tools">
+                <div class="item"><button class="tools_button"><img src="tool1.png" width="60px"><br>Mã độc trong mạng</button></div>
+                <div class="item"><button class="tools_button"><img src="tool2.png" width="60px"><br>Lộ lọt thông tin</button></div>
+                <div class="item"><button class="tools_button"><img src="tool3.png" width="60px"><br>Lừa đảo trực tuyến</button></div>
+                <div class="item"><button class="tools_button"><img src="tool4.png" width="60px"><br>Trắc nghiệm an toàn</button></div>
+            </div>
+        </div>
+        <div class="extensions " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="headline"><h1>Tiện ích, Vinh danh</h1></div>
+            <div class="container_extensions">
+                <div class="item"><button><img src="extention1.png" width="60px"><br>Bảo vệ tài khoản</button></div>
+                <div class="item"><button><img src="extention2.png" width="60px"><br>Báo lừa đảo</button></div>
+                <div class="item"><button><img src="extention3.png" width="60px"><br>Phần mềm hữu ích</button></div>
+                <div class="item"><button><img src="extention4.png" width="60px"><br>Vinh danh</button></div>
+            </div>
+        </div>
+        <div class="knowledge " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="headline"><h1>Nâng cao kiến thức an toàn, an ninh mạng</h1></div>
+            <div class="container_knowledge">
+                <div class="item"><button><img src="knowlegde1.png" width="60px"><br>Làm việc từ xa</button></div>
+                <div class="item"><button><img src="knowlegde2.png" width="60px"><br>Học trực tuyến</button></div>
+                <div class="item"><button><img src="knowlegde3.png" width="60px"><br>Liên lạc, kết nối</button></div>
+                <div class="item"><button><img src="knowlegde4.png" width="60px"><br>Giải trí</button></div>
+                <div class="item"><button><img src="knowlegde5.png" width="60px"><br>Cẩm nang sử dụng IOS an toàn</button></div>
+                <div class="item"><button><img src="knowlegde6.png" width="60px"><br>Cẩm nang sử dụng Android an toàn</button></div>
+                <div class="item"><button><img src="knowlegde7.png" width="60px"><br>Cẩm nang sử dụng Windows an toàn</button></div>
+                <div class="item"><button><img src="knowlegde5.png" width="60px"><br>Cẩm nang sử dụng MacOS an toàn</button></div>
+            </div>
+        </div>
+        <div class="ncsc_solution " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="headline">
+                <h1>Về Trung tâm Giám sát an toàn không gian mạng quốc gia (NCSC)</h1>
+                <h3>Trung tâm Giám sát an toàn không gian mạng quốc gia (National Cyber Security Center - NCSC) có chức năng giám sát trung tâm, là đầu mối kỹ thuật về giám sát, hỗ trợ bảo đảm ATTT cho người dân, doanh nghiệp và các hệ thống thông tin của Đảng, Nhà nước theo quy định của pháp luật:</h3>
+            </div>
+            <div class="ncsc">
+                <div class="container_ncsc">
+                    <div class="item">Thực hiện chức năng giám sát an toàn thông tin trên toàn bộ không gian mạng Việt Nam; thiết lập mạng lưới giám sát an toàn thông tin mạng trên toàn quốc.</div>
+                    <div class="item">Đầu mối tập trung về mặt kỹ thuật, chỉ đạo các doanh nghiệp cung cấp dịch vụ viễn thông, Internet (ISP) thực hiện các hoạt động, nhiệm vụ bảo đảm an toàn, an ninh mạng.</div>
+                    <div class="item">Thu thập thông tin, tổng hợp, phân tích, theo dõi và dự báo, cảnh báo sớm xu hướng về các hoạt động, diễn biến trên không gian mạng Việt Nam.</div>
+                    <div class="item">Đầu mối tiếp nhận, chia sẻ thông tin với các tổ chức quốc tế và giữa các cơ quan, tổ chức tại Việt Nam; thu thập thông tin, phân tích, đánh giá, trao đổi, cung cấp thông tin, tài liệu về tình hình an toàn thông tin trong nước và quốc tế.</div>
+                    <div class="item">Quản lý, vận hành các hệ thống số liệu, cơ sở dữ liệu về an toàn thông tin, hệ thống kỹ thuật bảo đảm an toàn thông tin mạng quốc gia phục vụ công tác quản lý nhà nước và thực thi pháp luật về an toàn thông tin tại Việt Nam.</div>
+                    <div class="item"><a href="">Tìm hiểu thêm</a></div>
+                </div>
+            </div>
+            <div class="solution">
+                <div class="solution_headline"><h1>Giải pháp</h1></div>
+                <div class="container_solution">
+                    <div class="item1"><img src="solution.gif" alt=""></div>
+                    <div class="item2">
+                        <div class="item_2_1">
+                            <div class="item_con2_1_1"><button>Hệ thống Bug Bounty & Vulnerability Disclosure</button></div>
+                            <div class="item_con2_1_2"><button>Hệ thống cảnh báo điểm yếu và rà soát lỗ hổng bảo mật tự động</button></div>
+                        </div>
+                        <div class="item_2_2">
+                            <div class="item_con2_2_1"><button>Hệ thống gán nhãn Website Tín nhiệm mạng</button></div>
+                            <div class="item_con2_2_2"><button>Hệ thống phân tích và chia sẻ nguy cơ tấn công mạng</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="support " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="headline"><h1>Bạn cần hỗ trợ?</h1>
+            <p>Khi cần hỗ trợ về ATTT, bạn có thể liên hệ với các tổ chức trong liên minh phòng chống mã độc và xử lý tấn công mạng. NCSC là đơn vị trung tâm thúc đẩy liên minh phòng chống mã độc xử lý tấn công mạng. Cùng nhau bảo vệ tài sản của cơ quan, tổ chức và người dân Việt Nam trước các nguy cơ tấn công mạng với mục tiêu "Giảm tỉ lệ lây nhiễm mã độc tại Việt Nam, góp phần đưa Việt Nam trở thành quốc gia có môi trường mạng an toàn, tin cậy".</p>
+            </div><br>
+            <div class="container_support">
+                <div class="item "><button><img src="support1.png" width="240px" height="100px"></div>
+                <div class="item "><button><img src="support2.png" width="240px" height="100px"></div>
+                <div class="item "><button><img src="support3.png" width="240px" height="100px"></div>
+                <div class="item "><button><img src="support4.png" width="240px" height="100px"></div>
+                <div class="item "><button><img src="support5.png" width="240px" height="100px"></div>
+                <div class="item "><button><img src="support6.png" width="240px" height="100px"></div>
+                <div class="item "><button><img src="support7.png" width="240px" height="100px"></div>
+                <div class="item "><button><img src="support8.png" width="240px" height="100px"></div>
+            </div>
+        </div>
+    </tbody>
+    <footer>
+        <div class="footer_item nscs_footer">
+            <div class="footer_headline">
+                <h4>NCSC</h4>
+            </div>
+            <div class="item">
+                <div class="item_con"><a href="">Giới thiệu</a></div>
+                <div class="item_con"><a href="">Công cụ</a></div>
+                <div class="item_con"><a href="">Giải pháp</a></div>
+                <div class="item_con"><a href="">Tuyển dụng</a></div>
+                <div class="item_con"><a href="">Dịch vụ</a></div>
+                <div class="item_con"><a href="">Blog</a></div>
+            </div>
+        </div>
+        <div class="footer_item support_footer">
+            <div class="footer_headline">
+                <h4>Hỗ Trợ</h4>
+            </div>
+            <div class="item">
+                <div class="item_con"><a href="">Điều khoản bảo mật</a></div>
+                <div class="item_con"><a href="">Cảnh báo lỗ hổng đối với các hệ thống của NCSC, AIS, MIC</a></div>
+                <div class="item_con"><a href="">Gửi cảnh báo bảo mật tới các cơ quan, tổ chức khác tại Việt Nam</a></div>
+                <div class="item_con"><a href="">Báo cáo bị tấn công mạng</a></div>
+            </div>
+        </div>
+        <div class="footer_item gate_footer">
+            <div class="footer_headline">
+                <h4>Cổng không gian mạng</h4>
+            </div>
+            <div class="item">
+                <div class="item_con">Trung tâm Giám sát an toàn không gian mạng quốc gia</div>
+                <div class="item_con">Seasons Avenue, Văn Quán, Hà Đông, Hà Nội</div>
+            </div>
+        </div>
+        <div class="footer_item footer_notification">
+            <div class="footer_headline"><h4>Để không bỏ lỡ thông báo nào</h4></div>
+            <div class="item">
+                <p>Hãy nhập Email: </p>
+                <input class="input" type="text" placeholder="">
+                <p>Họ và tên: </p>
+                <input class="input" type="text" placeholder="">
+                <p>Giới tính: </p>
+                <select name="sex" id="">
+                    <option value=""> </option>
+                    <option value="male">Nam</option>
+                    <option value="female">Nữ</option>
+                </select><br>
+                <button class="button">Nhận thông báo</button>
+            </div>
+        </div>
+    </footer>
+    <script>
+        AOS.init({
+            once: false,
+            offset: 100,
+            duration: 1000
+        });
+    </script>
+</body>
+</html>
